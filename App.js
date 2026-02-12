@@ -1,5 +1,5 @@
-import { CalculatorModel } from ".Vanilla_Javascript_calculator_POO/calculatorModel"
-import { CalculatorView } from ".Vanilla_Javascript_calculator_POO/calculatorView"
+import { CalculatorModel } from "./calculatorModel.js"
+import { CalculatorView } from "./calculatorView.js"
 
 class App {
     constructor() {
@@ -7,6 +7,8 @@ class App {
         this.view = new CalculatorView();
 
         this.view.render(this.model.currentExpression);
+
+        this.view.bindEvents(this.handleInteraction.bind(this));
     }
 
     handleInteraction({ value, action }) {
